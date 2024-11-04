@@ -6,6 +6,7 @@ interface RecipeListProps {
   recipes: Recipe[];
   onDelete: (id: number) => void;
   onTogglePrivacy: (id: number, isPrivate: boolean) => void;
+  onToggleFavorite: (id: number, isFavorite: boolean) => void;
 }
 
 const RecipeList: Component<RecipeListProps> = (props) => (
@@ -16,6 +17,7 @@ const RecipeList: Component<RecipeListProps> = (props) => (
           recipe={recipe}
           onDelete={props.onDelete}
           onTogglePrivacy={props.onTogglePrivacy}
+          onToggleFavorite={props.onToggleFavorite}
         />
       )}
     </For>

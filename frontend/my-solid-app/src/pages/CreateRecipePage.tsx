@@ -12,8 +12,9 @@ const RecipeCreatePage = () => {
   };
 
   return (
-    <div class="p-4">
-      <h2 class="text-xl font-bold mb-4">Create New Recipe</h2>
+    <div class="p-4 mt-10 place-items-center">
+      <h2 class="text-4xl font-bold mb-4">Create New Recipe</h2>
+      <div class="w-20 h-1 bg-blue-950 rounded-md shadow-xl mb-14"></div>
       <RecipeForm onSubmit={handleCreate} />
     </div>
   );

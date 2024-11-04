@@ -50,3 +50,27 @@ export const toggleRecipePrivacy = async (
 export const deleteRecipe = async (id: number): Promise<void> => {
   await axios.delete(`${API_URL}/recipes/${id}`);
 };
+
+// Togluje omiljenost recepta
+// export const toggleRecipeFavorite = async (
+//   id: number,
+//   isFavorite: boolean
+// ): Promise<void> => {
+//   await axios.put(`${API_URL}/recipes/${id}/favorite`, {
+//     is_favorite: isFavorite,
+//   });
+// };
+
+export const getFavoriteRecipes = async (): Promise<Recipe[]> => {
+  const response = await axios.get(`${API_URL}/recipes/favorites`);
+  return response.data;
+};
+
+export const toggleRecipeFavorite = async (
+  id: number,
+  isFavorite: boolean
+): Promise<void> => {
+  await axios.put(`${API_URL}/recipes/${id}/favorite`, {
+    is_favorite: isFavorite, // Promeni ključ ako je potrebno
+  });
+};

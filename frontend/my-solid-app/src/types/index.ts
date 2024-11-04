@@ -14,6 +14,6 @@ export interface RecipeCreateData {
   ingredients: string;
   instructions: string;
   isPrivate?: boolean;
-  imageUrl?: string;
+  imageUrl: string;
   isFavorite?: boolean;
 }

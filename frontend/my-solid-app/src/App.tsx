@@ -4,6 +4,7 @@ import CreateRecipePage from "./pages/CreateRecipePage";
 import EditRecipePage from "./pages/EditRecipePage";
 import RecipeDetailPage from "./pages/RecipeDetailPage";
 import { Route, Router } from "@solidjs/router";
+import FavoriteRecipesPage from "./pages/FavoriteRecipesPage";
 
 const App = () => (
   <Router
@@ -18,6 +19,7 @@ const App = () => (
     <Route path="/create" component={CreateRecipePage} />
     <Route path="/recipes/:id/edit" component={EditRecipePage} />
     <Route path="/recipes/:id" component={RecipeDetailPage} />
+    <Route path="/favorites" component={FavoriteRecipesPage} />
   </Router>
 );
 

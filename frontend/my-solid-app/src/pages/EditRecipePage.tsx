@@ -15,8 +15,9 @@ const RecipeEditPage = () => {
   };
 
   return (
-    <div class="p-4">
-      <h2 class="text-xl font-bold mb-4">Edit Recipe</h2>
+    <div class="p-4 place-items-center mt-10">
+      <h2 class="text-4xl font-bold mb-4">Edit Recipe</h2>
+      <div class="w-20 h-1 bg-blue-950 rounded-md shadow-xl mb-14"></div>
       {recipe() ? (
         <RecipeForm onSubmit={handleUpdate} initialData={recipe()} />
       ) : (
