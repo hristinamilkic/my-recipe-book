@@ -59,8 +59,8 @@ func GetRecipeByID(id int64) (*models.Recipe, error) {
 
 // Ažuriranje recepta po ID-ju
 func UpdateRecipe(id int64, updatedRecipe *models.Recipe) error {
-    query := "UPDATE recipes SET title = ?, ingredients = ?, instructions = ?, is_private = ? WHERE id = ?"
-    _, err := config.DB.Exec(query, updatedRecipe.Title, updatedRecipe.Ingredients, updatedRecipe.Instructions, updatedRecipe.IsPrivate, id)
+    query := "UPDATE recipes SET title = ?, ingredients = ?, instructions = ?, image_url = ?, is_private = ? WHERE id = ?"
+    _, err := config.DB.Exec(query, updatedRecipe.Title, updatedRecipe.Ingredients, updatedRecipe.Instructions, updatedRecipe.ImageURL, updatedRecipe.IsPrivate, id)
     return err
 }
 
@@ -93,4 +93,10 @@ func GetRecipeByToken(token string) (*models.Recipe, error) {
         return nil, errors.New("recipe not found")
     }
     return &recipe, nil
+}
+
+func SetRecipeFavorite(id int64, isFavorite bool) error {
+    query := "UPDATE recipes SET is_favorite = ? WHERE id = ?"
+    _, err := config.DB.Exec(query, isFavorite, id)
+    return err
 }

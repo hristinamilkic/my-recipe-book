@@ -32,8 +32,9 @@ func main() {
 	router.GET("/recipes/:id", controllers.GetRecipeByID)
 	router.PUT("/recipes/:id", controllers.UpdateRecipe)
 	router.DELETE("/recipes/:id", controllers.DeleteRecipe)
-	router.GET("/api/recipes/token/:token", controllers.GetRecipeByToken) // Ruta za dohvat recepta putem privacy_token-a
-	router.PUT("/api/recipes/:id/privacy", controllers.TogglePrivacy) 
+	router.GET("/recipes/token/:token", controllers.GetRecipeByToken) // Ruta za dohvat recepta putem privacy_token-a
+	router.PUT("/recipes/:id/privacy", controllers.TogglePrivacy)
+	router.PUT("/recipes/:id/favorite", controllers.ToggleFavorite) 
 
 	
 	log.Fatal(router.Run(":8080"))

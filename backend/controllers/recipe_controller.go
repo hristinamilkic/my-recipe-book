@@ -98,3 +98,15 @@ func GetRecipeByToken(c *gin.Context) {
 
     c.JSON(http.StatusOK, recipe)
 }
+
+func ToggleFavorite(c *gin.Context) {
+    id, _ := strconv.ParseInt(c.Param("id"), 10, 64)
+    isFavorite := c.Query("favorite") == "true"
+
+    if err := services.SetRecipeFavorite(id, isFavorite); err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to toggle favorite"})
+        return
+    }
+
+    c.JSON(http.StatusOK, gin.H{"message": "Recipe favorite status toggled"})
+}
